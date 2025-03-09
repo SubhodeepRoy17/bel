@@ -124,11 +124,11 @@ export default function Home() {
             </Card>
           </div>
           <div className="relative">
-            <p className="text-4xl md:text-6xl lg:text-7xl font-medium mb-6 text-orange-500 font-['Brush_Script_MT'] tracking-normal">
-            The Thrill of the Game
+            <p className="text-4xl md:text-6xl lg:text-7xl font-medium mb-6 text-amber-500 font-['Brush_Script_MT'] tracking-normal border-b-2 border-amber-300 pb-2 drop-shadow-[0_2px_2px_rgba(251,191,36,0.3)]">
+              The Thrill of the Game
             </p>
             
-            <p className="text-5xl md:text-7xl lg:text-8xl font-medium mb-10 text-yellow-400 font-['Brush_Script_MT'] tracking-normal">
+            <p className="text-5xl md:text-7xl lg:text-8xl font-medium mb-10 text-yellow-400 font-['Brush_Script_MT'] tracking-normal border-b-2 border-yellow-300 pb-2 drop-shadow-[0_2px_2px_rgba(250,204,21,0.3)]">
               The Joy of Winning
             </p>
           </div>
@@ -141,9 +141,15 @@ export default function Home() {
             </p>
           </div>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button className="bg-yellow-500 hover:bg-yellow-600 text-[#1a1145] text-lg font-bold px-8 py-6 cursor-pointer">
-              Register Now
-            </Button>
+            <Link 
+              href="https://docs.google.com/forms/d/e/1FAIpQLSf5WWPIBqlvkfu9SBVIx5KNfPVt1vy2AGdigw0tOdXyBG9NGA/viewform?usp=dialog"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Button className="bg-yellow-500 hover:bg-yellow-600 text-[#1a1145] text-lg font-bold px-8 py-6 cursor-pointer">
+                Register Now
+              </Button>
+            </Link>
             <Button
               variant="outline"
               className="border-yellow-500 text-yellow-400 hover:bg-yellow-500/10 text-lg font-bold px-8 py-6 cursor-pointer"
@@ -675,4 +681,3 @@ export default function Home() {
     </div>
   )
 }
-
