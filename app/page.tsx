@@ -128,15 +128,15 @@ export default function Home() {
           {/* First paragraph with highlight */}
           <div className="relative mb-12">
             <div className="absolute inset-0 bg-yellow-300/20 rounded-lg backdrop-blur-sm px-10 w-[33%] ml-[500px]"></div>
-            <p className="text-4xl md:text-6xl lg:text-7xl font-medium mb-6 text-yellow-400 font-['Edwardian_Script_ITC'] tracking-normal drop-shadow-[2px_2px_4px_rgba(220,38,38,0.5)] relative z-10 py-2">
+            <p className="text-4xl md:text-6xl lg:text-7xl font-medium mb-6 text-yellow-400 tracking-normal drop-shadow-[2px_2px_4px_rgba(220,38,38,0.5)] relative z-10 py-2" style={{ fontFamily: 'Boulevard Saint Denis' }}>
               The Thrill of the Game
             </p>
           </div>
           
           {/* Second paragraph with highlight */}
           <div className="relative mb-12">
-          <div className="absolute inset-0 bg-yellow-300/20 rounded-lg backdrop-blur-sm px-10 w-[40%] ml-[450px]"></div>
-            <p className="text-5xl md:text-7xl lg:text-8xl font-medium mb-10 text-yellow-400 font-['Edwardian_Script_ITC'] tracking-normal drop-shadow-[2px_2px_4px_rgba(220,38,38,0.5)] relative z-10 py-2">
+          <div className="absolute inset-0 bg-yellow-300/20 rounded-lg backdrop-blur-sm px-10 w-[30%] ml-[520px]"></div>
+          <p className="text-4xl md:text-6xl lg:text-7xl font-medium mb-6 text-yellow-400 tracking-normal drop-shadow-[2px_2px_4px_rgba(220,38,38,0.5)] relative z-10 py-2" style={{ fontFamily: 'Boulevard Saint Denis' }}>
               The Joy of Winning
             </p>
           </div>
@@ -161,12 +161,14 @@ export default function Home() {
               Register Now
             </Button>
           </Link>
-          <Button
-            variant="outline"
-            className="border-yellow-500 text-yellow-400 hover:bg-yellow-500/10 text-lg font-bold px-8 py-6 cursor-pointer"
-          >
-            Learn More
-          </Button>
+          <Link href="#about">
+            <Button
+              variant="outline"
+              className="border-yellow-500 text-yellow-400 hover:bg-yellow-500/10 text-lg font-bold px-8 py-6 cursor-pointer"
+            >
+              Learn More
+            </Button>
+          </Link>
         </div>
         
         <div className="mt-16 mb-8">
@@ -495,8 +497,8 @@ export default function Home() {
                 <Phone className="text-yellow-400 mt-1 flex-shrink-0" />
                 <div>
                   <p className="font-semibold">Call Us</p>
-                  <p className="text-gray-300">+91 9062 42 3883 / +91 6290 445 420 / +91 74397 67511</p>
-                  <p className="text-gray-300">+91 90077 58484 / +91 93308 14980 / +91 74397 67511</p>
+                  <p className="text-gray-300">+91 9062 42 3883 / +91 6290 445 420</p>
+                  <p className="text-gray-300">+91 90077 58484 / +91 93308 14980</p>
                 </div>
               </div>
               <div className="flex items-start gap-4 mb-6">
@@ -668,7 +670,8 @@ export default function Home() {
           <div>
             <h4 className="text-lg font-bold text-yellow-400 mb-4">Contact Us</h4>
             <p className="text-sm">📍 Maulana Abul Kalam Azad Rd, Gulmohar Railway Quarters, Mali Panchghara, Howrah, West Bengal 711106</p>
-            <p className="text-sm">📞 +91 98765 43210/ 74397 67511</p>
+            <p className="text-sm">📞 +91 9062 42 3883 / +91 6290 445 420</p>
+            <p className="text-sm">📞 +91 90077 58484 / +91 93308 14980</p>
             <p className="text-sm">📧 support@bengaleliteleague.com</p>
           </div>
         </div>
@@ -693,4 +696,3 @@ export default function Home() {
     </div>
   )
 }
-
