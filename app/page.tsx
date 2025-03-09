@@ -1,12 +1,49 @@
 'use client'
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image"
 import Link from "next/link"
 import { Calendar, Trophy, Users, Phone, MapPin, BirdIcon as Cricket, Tv } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import CountdownTimer from "@/components/countdown-timer"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import VideoModal from "@/components/video-modal"
 
 export default function Home() {
+  const sectionRef = useRef(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [showVideo, setShowVideo] = useState(false);
+  const [isMuted, setIsMuted] = useState(true);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setShowVideo(true);
+          if (videoRef.current) {
+            videoRef.current.play().catch((error) => console.error("Autoplay failed:", error));
+          }
+        }
+      },
+      { threshold: 0.5 }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+      }
+    };
+  }, []);
+
+  const toggleMute = () => {
+    if (videoRef.current) {
+      videoRef.current.muted = !videoRef.current.muted;
+      setIsMuted(!isMuted);
+    }
+  };
   return (
   <div className="min-h-screen bg-[#150237] text-white overflow-hidden" style={{ fontFamily: "Poppins" }}>
   {/* Header */}
@@ -86,13 +123,15 @@ export default function Home() {
               </CardContent>
             </Card>
           </div>
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-orange-500 font-bebas">
-            THE THRILL OF THE GAME
-          </h1>
-          <p className="text-5xl md:text-7xl lg:text-8xl font-black mb-10 text-yellow-400 drop-shadow-[0_5px_5px_rgba(0,0,0,0.5)] font-bebas">
-            THE JOY OF WINNING
-          </p>
-
+          <div className="relative">
+            <p className="text-4xl md:text-6xl lg:text-7xl font-medium mb-6 text-orange-500 font-['Brush_Script_MT'] tracking-normal">
+            The Thrill of the Game
+            </p>
+            
+            <p className="text-5xl md:text-7xl lg:text-8xl font-medium mb-10 text-yellow-400 font-['Brush_Script_MT'] tracking-normal">
+              The Joy of Winning
+            </p>
+          </div>
           <div className="bg-[#1a1145]/80 backdrop-blur-sm p-6 rounded-lg inline-block mb-12 border border-yellow-500/30">
             <p className="text-2xl md:text-3xl font-bold text-white">
               <span className="text-yellow-400">14</span>
@@ -189,15 +228,35 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="order-1 md:order-2 flex justify-center">
+            <div ref={sectionRef} className="order-1 md:order-2 flex justify-center relative">
               <div className="relative max-w-md">
-                <Image
-                  src="/tv.jpeg"
-                  alt="Get Ready For The Action"
-                  width={400}
-                  height={500}
-                  className="rounded-lg shadow-2xl"
-                />
+                {showVideo ? (
+                  <>
+                    <video
+                      ref={videoRef}
+                      src="/tv.mp4"
+                      autoPlay
+                      loop
+                      playsInline
+                      className="rounded-lg shadow-2xl w-[400px] h-[500px] object-cover"
+                      muted={isMuted}
+                    />
+                    <button
+                      onClick={toggleMute}
+                      className="absolute bottom-4 right-4 bg-black text-white px-3 py-1 text-sm rounded-md"
+                    >
+                      {isMuted ? "🔇 Unmute" : "🔊 Mute"}
+                    </button>
+                  </>
+                ) : (
+                  <img
+                    src="/tv.jpeg"
+                    alt="Get Ready For The Action"
+                    width={400}
+                    height={500}
+                    className="rounded-lg shadow-2xl"
+                  />
+                )}
               </div>
             </div>
           </div>
@@ -418,22 +477,22 @@ export default function Home() {
                 <Phone className="text-yellow-400 mt-1 flex-shrink-0" />
                 <div>
                   <p className="font-semibold">Call Us</p>
-                  <p className="text-gray-300">+91 9062 42 3883 / +91 6290 445 420</p>
-                  <p className="text-gray-300">+91 90077 58484 / +91 93308 14980</p>
+                  <p className="text-gray-300">+91 9062 42 3883 / +91 6290 445 420 / +91 74397 67511</p>
+                  <p className="text-gray-300">+91 90077 58484 / +91 93308 14980 / +91 74397 67511</p>
                 </div>
               </div>
               <div className="flex items-start gap-4 mb-6">
                 <MapPin className="text-yellow-400 mt-1 flex-shrink-0" />
                 <div>
                   <p className="font-semibold">Location</p>
-                  <p className="text-gray-300">Bengal Cricket Stadium, Kolkata, West Bengal</p>
+                  <p className="text-gray-300">D3 SPORTS ARENA MAIN STADIUM</p>
                 </div>
               </div>
               <div className="mt-8">
                 <h4 className="font-semibold mb-4">Follow Us</h4>
                 <div className="flex gap-4">
                   <a
-                    href="#"
+                    href="https://www.facebook.com/share/1YjSMuXe4z/?mibextid=wwXIfr"
                     className="bg-yellow-500 w-10 h-10 rounded-full flex items-center justify-center text-[#1a1145]"
                   >
                     <svg
@@ -451,7 +510,7 @@ export default function Home() {
                     </svg>
                   </a>
                   <a
-                    href="#"
+                    href="https://www.instagram.com/bengaleliteleague?igsh=YnVncHZlcWkxZnRo&utm_source=qr"
                     className="bg-yellow-500 w-10 h-10 rounded-full flex items-center justify-center text-[#1a1145]"
                   >
                     <svg
@@ -590,8 +649,8 @@ export default function Home() {
           {/* Contact Us */}
           <div>
             <h4 className="text-lg font-bold text-yellow-400 mb-4">Contact Us</h4>
-            <p className="text-sm">📍 Kolkata, West Bengal, India</p>
-            <p className="text-sm">📞 +91 98765 43210</p>
+            <p className="text-sm">📍 Maulana Abul Kalam Azad Rd, Gulmohar Railway Quarters, Mali Panchghara, Howrah, West Bengal 711106</p>
+            <p className="text-sm">📞 +91 98765 43210/ 74397 67511</p>
             <p className="text-sm">📧 support@bengaleliteleague.com</p>
           </div>
         </div>
@@ -612,7 +671,7 @@ export default function Home() {
           <p className="mt-1 font-bold text-yellow-400">#ABKHELEGABENGAL</p>
         </div>
       </footer>
-
+      <VideoModal />
     </div>
   )
 }
