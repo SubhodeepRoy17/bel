@@ -98,70 +98,82 @@ export default function Home() {
       `}</style>
 
       {/* Hero Section */}
-      <section className="relative min-h-[120vh] flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0 z-0">
-          <Image
-            src="/cover_main.jpeg"
-            alt="Cricket Player"
-            fill
-            style={{ objectFit: "cover" }}
-            priority
-            className="opacity-40"
-          />
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      <div className="absolute inset-0 z-0">
+        <Image
+          src="/cover_main.jpeg"
+          alt="Cricket Player"
+          fill
+          style={{ objectFit: "cover" }}
+          priority
+          className="opacity-40"
+        />
+      </div>
+      <div className="container mx-auto px-4 z-10 text-center py-20">
+        <div className="mb-10 flex justify-center">
+          <Card className="w-full max-w-sm bg-[#2a1a55]/90 backdrop-blur-sm border-yellow-500/50 shadow-xl shadow-yellow-500/20">
+            <CardHeader>
+              <CardTitle className="text-yellow-400 text-3xl">Coming Soon...</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <p className="text-white text-lg">The biggest cricket event of 2025!</p>
+              <div className="mt-4 flex justify-center">
+                <span className="inline-block animate-ping h-4 w-4 rounded-full bg-yellow-400 opacity-75"></span>
+              </div>
+            </CardContent>
+          </Card>
         </div>
-        <div className="container mx-auto px-4 z-10 text-center py-20">
-          <div className="mb-10 flex justify-center">
-            <Card className="w-[300px] bg-[#2a1a55]/90 backdrop-blur-sm border-yellow-500/50 shadow-xl shadow-yellow-500/20">
-              <CardHeader>
-                <CardTitle className="text-yellow-400 text-3xl">Coming Soon...</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-white text-lg">The biggest cricket event of 2025!</p>
-                <div className="mt-4 flex justify-center">
-                  <span className="inline-block animate-ping h-4 w-4 rounded-full bg-yellow-400 opacity-75"></span>
-                </div>
-              </CardContent>
-            </Card>
-          </div>
-          <div className="relative">
-            <p className="text-4xl md:text-6xl lg:text-7xl font-medium mb-6 text-amber-500 font-['Brush_Script_MT'] tracking-normal border-b-2 border-amber-300 pb-2 drop-shadow-[0_2px_2px_rgba(251,191,36,0.3)]">
+        
+        <div className="relative">
+          {/* First paragraph with highlight */}
+          <div className="relative mb-12">
+            <div className="absolute inset-0 bg-yellow-300/20 rounded-lg backdrop-blur-sm px-10 w-[33%] ml-[500px]"></div>
+            <p className="text-4xl md:text-6xl lg:text-7xl font-medium mb-6 text-yellow-400 font-['Edwardian_Script_ITC'] tracking-normal drop-shadow-[2px_2px_4px_rgba(220,38,38,0.5)] relative z-10 py-2">
               The Thrill of the Game
             </p>
-            
-            <p className="text-5xl md:text-7xl lg:text-8xl font-medium mb-10 text-yellow-400 font-['Brush_Script_MT'] tracking-normal border-b-2 border-yellow-300 pb-2 drop-shadow-[0_2px_2px_rgba(250,204,21,0.3)]">
+          </div>
+          
+          {/* Second paragraph with highlight */}
+          <div className="relative mb-12">
+          <div className="absolute inset-0 bg-yellow-300/20 rounded-lg backdrop-blur-sm px-10 w-[40%] ml-[450px]"></div>
+            <p className="text-5xl md:text-7xl lg:text-8xl font-medium mb-10 text-yellow-400 font-['Edwardian_Script_ITC'] tracking-normal drop-shadow-[2px_2px_4px_rgba(220,38,38,0.5)] relative z-10 py-2">
               The Joy of Winning
             </p>
           </div>
-          <div className="bg-[#1a1145]/80 backdrop-blur-sm p-6 rounded-lg inline-block mb-12 border border-yellow-500/30">
-            <p className="text-2xl md:text-3xl font-bold text-white">
-              <span className="text-yellow-400">14</span>
-              <sup className="text-yellow-400">TH</sup> TO
-              <span className="text-yellow-400"> 18</span>
-              <sup className="text-yellow-400">TH</sup> MAY 2025
-            </p>
-          </div>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link 
-              href="https://docs.google.com/forms/d/e/1FAIpQLSf5WWPIBqlvkfu9SBVIx5KNfPVt1vy2AGdigw0tOdXyBG9NGA/viewform?usp=dialog"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <Button className="bg-yellow-500 hover:bg-yellow-600 text-[#1a1145] text-lg font-bold px-8 py-6 cursor-pointer">
-                Register Now
-              </Button>
-            </Link>
-            <Button
-              variant="outline"
-              className="border-yellow-500 text-yellow-400 hover:bg-yellow-500/10 text-lg font-bold px-8 py-6 cursor-pointer"
-            >
-              Learn More
-            </Button>
-          </div>
-          <div className="mt-16 mb-8">
-            <CountdownTimer targetDate="2025-05-14T00:00:00" />
-          </div>
         </div>
-      </section>
+        
+        <div className="bg-[#1a1145]/80 backdrop-blur-sm p-6 rounded-lg inline-block mb-12 border border-yellow-500/30">
+          <p className="text-2xl md:text-3xl font-bold text-white">
+            <span className="text-yellow-400">14</span>
+            <sup className="text-yellow-400">TH</sup> TO
+            <span className="text-yellow-400"> 18</span>
+            <sup className="text-yellow-400">TH</sup> MAY 2025
+          </p>
+        </div>
+        
+        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <Link 
+            href="https://docs.google.com/forms/d/e/1FAIpQLSf5WWPIBqlvkfu9SBVIx5KNfPVt1vy2AGdigw0tOdXyBG9NGA/viewform?usp=dialog"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Button className="bg-yellow-500 hover:bg-yellow-600 text-[#1a1145] text-lg font-bold px-8 py-6 cursor-pointer">
+              Register Now
+            </Button>
+          </Link>
+          <Button
+            variant="outline"
+            className="border-yellow-500 text-yellow-400 hover:bg-yellow-500/10 text-lg font-bold px-8 py-6 cursor-pointer"
+          >
+            Learn More
+          </Button>
+        </div>
+        
+        <div className="mt-16 mb-8">
+          <CountdownTimer targetDate="2025-05-14T00:00:00" />
+        </div>
+      </div>
+    </section>
 
       {/* TV Promo Section */}
       <section className="py-20 bg-gradient-to-b from-[#1a1145] to-[#2a1a55]">
@@ -681,3 +693,4 @@ export default function Home() {
     </div>
   )
 }
+
