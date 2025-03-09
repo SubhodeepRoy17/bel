@@ -128,17 +128,17 @@ export default function Home() {
           {/* First paragraph with highlight */}
           <div className="relative mb-12">
             <div className="absolute inset-0 bg-yellow-300/20 rounded-lg backdrop-blur-sm px-10 w-[33%] ml-[500px]"></div>
-            <p className="text-4xl md:text-6xl lg:text-7xl font-medium mb-6 text-yellow-400 tracking-normal drop-shadow-[2px_2px_4px_rgba(220,38,38,0.5)] relative z-10 py-2" style={{ fontFamily: 'Boulevard Saint Denis' }}>
+            <h1 className="text-9xl md:text-9xl lg:text-9xl font-medium mb-6 text-yellow-400 tracking-normal drop-shadow-[2px_2px_4px_rgba(220,38,38,0.5)] relative z-10 py-2" style={{ fontFamily: 'Boulevard Saint Denis' }}>
               The Thrill of the Game
-            </p>
+            </h1>
           </div>
           
           {/* Second paragraph with highlight */}
           <div className="relative mb-12">
           <div className="absolute inset-0 bg-yellow-300/20 rounded-lg backdrop-blur-sm px-10 w-[30%] ml-[520px]"></div>
-          <p className="text-4xl md:text-6xl lg:text-7xl font-medium mb-6 text-yellow-400 tracking-normal drop-shadow-[2px_2px_4px_rgba(220,38,38,0.5)] relative z-10 py-2" style={{ fontFamily: 'Boulevard Saint Denis' }}>
+          <h1 className="text-9xl md:text-9xl lg:text-9xl font-medium mb-6 text-yellow-400 tracking-normal drop-shadow-[2px_2px_4px_rgba(220,38,38,0.5)] relative z-10 py-2" style={{ fontFamily: 'Boulevard Saint Denis' }}>
               The Joy of Winning
-            </p>
+            </h1>
           </div>
         </div>
         
@@ -696,3 +696,4 @@ export default function Home() {
     </div>
   )
 }
+
