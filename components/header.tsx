@@ -70,7 +70,7 @@ export default function Header() {
             <Link href="/details" className={isActive("/details")}>
               Details
             </Link>
-            <Link href="#prizes" className={isActive("#prizes")}>
+            <Link href="/prizes" className={isActive("/prizes")}>
               Prizes
             </Link>
             <Link href="/contact" className={isActive("/contact")}>
@@ -153,8 +153,8 @@ export default function Header() {
                 Details
               </Link>
               <Link 
-                href="#prizes" 
-                className={`${isActive("#prizes")} border-l-4 ${pathname === "#prizes" ? "border-yellow-400" : "border-transparent"} pl-4 py-2`}
+                href="/prizes" 
+                className={`${isActive("/prizes")} border-l-4 ${pathname === "/prizes" ? "border-yellow-400" : "border-transparent"} pl-4 py-2`}
                 onClick={closeDrawer}
               >
                 Prizes

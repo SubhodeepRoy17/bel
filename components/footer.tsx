@@ -92,25 +92,6 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Recent Updates */}
-          <div className="flex flex-col space-y-6">
-            <h4 className="text-xl font-bold text-white relative pl-4 before:content-[''] before:absolute before:left-0 before:top-0 before:bottom-0 before:w-1 before:bg-yellow-400 before:rounded">
-              Recent Updates
-            </h4>
-            <div className="space-y-4">
-              {[
-                { date: "Mar 25, 2025", title: "Season 2 Registration Opens" },
-                { date: "Mar 15, 2025", title: "New Stadium Announced" },
-                { date: "Mar 10, 2025", title: "Player Draft Results" }
-              ].map((update, index) => (
-                <div key={index} className="group cursor-pointer">
-                  <p className="text-yellow-400 text-sm font-medium">{update.date}</p>
-                  <h5 className="text-white group-hover:text-yellow-400 transition-colors">{update.title}</h5>
-                </div>
-              ))}
-            </div>
-          </div>
-
           {/* Contact Us */}
           <div className="flex flex-col space-y-6">
             <h4 className="text-xl font-bold text-white relative pl-4 before:content-[''] before:absolute before:left-0 before:top-0 before:bottom-0 before:w-1 before:bg-yellow-400 before:rounded">
@@ -138,36 +119,9 @@ export default function Footer() {
               </div>
               <div className="flex items-start space-x-3">
                 <Mail className="text-yellow-400 flex-shrink-0 " size={18} />
-                <p className="text-sm">info@bengaleliteleague.com</p>
-              </div>
-              <div className="flex items-start space-x-3">
-                <Mail className="text-yellow-400 flex-shrink-0 " size={18} />
                 <p className="text-sm">contact@bengaleliteleague.com</p>
               </div>
-              <div className="flex items-start space-x-3">
-                <Mail className="text-yellow-400 flex-shrink-0 " size={18} />
-                <p className="text-sm">hello@bengaleliteleague.com</p>
-              </div>
             </div>
-          </div>
-        </div>
-
-        {/* Sponsors Section with Glowing Effect */}
-        <div className="mt-16 pt-8 border-t border-yellow-500/20">
-          <h4 className="text-xl font-bold text-center text-white mb-8 relative inline-block">
-            <span className="relative z-10">Our Sponsors & Partners</span>
-            <span className="absolute -bottom-2 left-0 right-0 h-1 bg-yellow-400"></span>
-          </h4>
-          
-          <div className="flex flex-wrap items-center justify-center gap-8">
-            {[1, 2, 3, 4].map((num) => (
-              <div 
-                key={num} 
-                className="bg-white/5 backdrop-blur-sm p-4 rounded-lg hover:bg-white/10 transition-all duration-300 border border-white/10 hover:border-yellow-400/30 hover:shadow-lg hover:shadow-yellow-400/10"
-              >
-                <Image src={`/sponsor${num}.png`} alt={`Sponsor ${num}`} width={100} height={50} className="object-contain" />
-              </div>
-            ))}
           </div>
         </div>
 

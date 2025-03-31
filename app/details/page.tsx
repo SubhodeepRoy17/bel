@@ -63,7 +63,9 @@ export default function DetailsPage() {
       {/* Content */}
       <div className="relative z-10">
         <Header />
-        
+        <br />
+        <br />
+        <br />
         <div className="container mx-auto p-6">
           {/* Tournament Overview Card */}
           <div className="bg-gradient-to-br from-purple-950/90 to-purple-900/80 text-white rounded-xl shadow-2xl p-6 mb-8 backdrop-blur-md border border-purple-500/30">
@@ -162,17 +164,10 @@ export default function DetailsPage() {
                       <h3 className="text-lg font-semibold text-white group-hover:text-amber-200 transition-colors">{team.name}</h3>
                       <div className="mt-2 text-sm text-purple-200 flex justify-between">
                         <span>Players: 11-14</span>
-                        {team.played > 0 && (
-                          <span className="font-medium text-amber-300">{team.won}W - {team.lost}L</span>
-                        )}
+                        
                       </div>
                     </div>
-                    {team.played > 0 && (
-                      <div className="bg-purple-900/70 px-4 py-2 flex justify-between text-xs text-purple-200">
-                        <span>Played: {team.played}</span>
-                        <span>Points: <span className="font-bold text-amber-300">{team.points}</span></span>
-                      </div>
-                    )}
+                    
                   </div>
                 ))}
               </div>
@@ -212,16 +207,16 @@ export default function DetailsPage() {
                             </span>
                           </div>
                         </td>
-                        <td className="py-3 px-6 font-medium">{team.name}</td>
-                        <td className="py-3 px-6 text-center">{team.played}</td>
-                        <td className="py-3 px-6 text-center text-green-400">{team.won}</td>
-                        <td className="py-3 px-6 text-center text-red-400">{team.lost}</td>
+                        <td className="py-3 px-6 font-medium">0</td>
+                        <td className="py-3 px-6 text-center">0</td>
+                        <td className="py-3 px-6 text-center text-green-400">0</td>
+                        <td className="py-3 px-6 text-center text-red-400">0</td>
                         <td className="py-3 px-6 text-center">
-                          <span className="font-bold text-lg text-amber-300">{team.points}</span>
+                          <span className="font-bold text-lg text-amber-300">0</span>
                         </td>
                         <td className="py-3 px-6 text-center">
                           <span className={`${team.nrr.startsWith('+') ? 'text-green-400' : 'text-red-400'}`}>
-                            {team.nrr}
+                            0
                           </span>
                         </td>
                       </tr>
