@@ -18,9 +18,10 @@ export default function Footer() {
 
       <div className="container mx-auto px-6">
         {/* Main Footer Content */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 justify-items-center">
+          
           {/* Logo & About Section */}
-          <div className="flex flex-col space-y-6">
+          <div className="flex flex-col space-y-6 text-left w-full">
             <div className="flex items-center gap-3">
               <div className="bg-white p-2 rounded-lg shadow-md">
                 <Image src="/logo.png" alt="Bengal Elite League Logo" width={60} height={60} className="object-contain" />
@@ -34,43 +35,27 @@ export default function Footer() {
               Experience the thrill of cricket with Bengal Elite League. Compete, win, and make history in West Bengal&apos;s premier cricket tournament!
             </p>
             <div className="flex space-x-4">
-              <a 
-                href="https://www.facebook.com/share/1YjSMuXe4z/?mibextid=wwXIfr" 
-                target="_blank" 
-                rel="noreferrer"
-                className="bg-yellow-400 hover:bg-yellow-500 text-[#1a1145] p-2 rounded-full transition-all duration-300"
-              >
+              <a href="https://www.facebook.com/share/1YjSMuXe4z/?mibextid=wwXIfr" target="_blank" rel="noreferrer"
+                className="bg-yellow-400 hover:bg-yellow-500 text-[#1a1145] p-2 rounded-full transition-all duration-300">
                 <Facebook size={18} />
               </a>
-              <a 
-                href="#" 
-                target="_blank" 
-                rel="noreferrer"
-                className="bg-yellow-400 hover:bg-yellow-500 text-[#1a1145] p-2 rounded-full transition-all duration-300"
-              >
+              <a href="#" target="_blank" rel="noreferrer"
+                className="bg-yellow-400 hover:bg-yellow-500 text-[#1a1145] p-2 rounded-full transition-all duration-300">
                 <Twitter size={18} />
               </a>
-              <a 
-                href="https://www.instagram.com/bengaleliteleague?igsh=YnVncHZlcWkxZnRo&utm_source=qr" 
-                target="_blank" 
-                rel="noreferrer"
-                className="bg-yellow-400 hover:bg-yellow-500 text-[#1a1145] p-2 rounded-full transition-all duration-300"
-              >
+              <a href="https://www.instagram.com/bengaleliteleague?igsh=YnVncHZlcWkxZnRo&utm_source=qr" target="_blank" rel="noreferrer"
+                className="bg-yellow-400 hover:bg-yellow-500 text-[#1a1145] p-2 rounded-full transition-all duration-300">
                 <Instagram size={18} />
               </a>
-              <a 
-                href="#" 
-                target="_blank" 
-                rel="noreferrer"
-                className="bg-yellow-400 hover:bg-yellow-500 text-[#1a1145] p-2 rounded-full transition-all duration-300"
-              >
+              <a href="https://youtube.com/@bengaleliteleague?si=MI7UvRI1cSE1akC8"
+                className="bg-yellow-400 hover:bg-yellow-500 text-[#1a1145] p-2 rounded-full transition-all duration-300">
                 <Youtube size={18} />
               </a>
             </div>
           </div>
 
           {/* Quick Links */}
-          <div className="flex flex-col space-y-6">
+          <div className="flex flex-col space-y-6 text-left w-full">
             <h4 className="text-xl font-bold text-white relative pl-4 before:content-[''] before:absolute before:left-0 before:top-0 before:bottom-0 before:w-1 before:bg-yellow-400 before:rounded">
               Quick Links
             </h4>
@@ -93,7 +78,7 @@ export default function Footer() {
           </div>
 
           {/* Contact Us */}
-          <div className="flex flex-col space-y-6">
+          <div className="flex flex-col space-y-6 text-left w-full">
             <h4 className="text-xl font-bold text-white relative pl-4 before:content-[''] before:absolute before:left-0 before:top-0 before:bottom-0 before:w-1 before:bg-yellow-400 before:rounded">
               Contact Us
             </h4>
@@ -118,7 +103,7 @@ export default function Footer() {
                 <p className="text-sm">support@bengaleliteleague.com</p>
               </div>
               <div className="flex items-start space-x-3">
-                <Mail className="text-yellow-400 flex-shrink-0 " size={18} />
+                <Mail className="text-yellow-400 flex-shrink-0" size={18} />
                 <p className="text-sm">contact@bengaleliteleague.com</p>
               </div>
             </div>

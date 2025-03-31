@@ -3,7 +3,7 @@ import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
-import { Phone, Mail, MapPin, Clock, Facebook, Instagram, Twitter, Linkedin } from 'lucide-react'
+import { Phone, Mail, MapPin, Clock, Facebook, Instagram, Twitter, Linkedin, Youtube } from 'lucide-react'
 import Header from "@/components/header"
 import Footer from "@/components/footer"
 
@@ -61,7 +61,7 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <h3 className="text-xl font-bold mb-2 text-yellow-400">Email</h3>
-                    <p className="text-gray-200 mb-1">info@bengaleliteleague.com</p>
+                    <p className="text-gray-200 mb-1">contact@bengaleliteleague.com</p>
                     <p className="text-gray-200">support@bengaleliteleague.com</p>
                   </div>
                 </div>
@@ -118,11 +118,10 @@ export default function ContactPage() {
                   >
                     <Twitter size={24} />
                   </a>
-                  <a
-                    href="#"
+                  <a href="https://youtube.com/@bengaleliteleague?si=MI7UvRI1cSE1akC8"
                     className="bg-yellow-500 w-12 h-12 rounded-full flex items-center justify-center text-[#1a1145] hover:bg-yellow-400 transition-colors"
                   >
-                    <Linkedin size={24} />
+                    <Youtube size={24} />
                   </a>
                 </div>
               </div>

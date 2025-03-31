@@ -109,7 +109,7 @@ export default function AboutPage() {
                   <p className="text-sm md:text-base text-gray-200">
                     Today, Bengal Elite League stands as the premier cricket tournament in the region with 16 teams, professional organization, substantial prize money, and live coverage. The tournament has become a launchpad for cricket careers and a celebration of Bengal&apos;s cricket culture.
                   </p>
-                  <p style={{ textAlign: "center" }}>BBC Networks</p>
+                  <p style={{ textAlign: "center" }}>BD Networks</p>
                 </div>
               </div>
             </div>

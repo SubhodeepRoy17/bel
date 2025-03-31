@@ -45,7 +45,7 @@ export default function Header() {
 
   return (
     <>
-      <header className={`fixed w-full z-40 bg-[#1a1145]/90 backdrop-blur-sm border-b border-yellow-500/20 transition-all ${isScrolled ? "py-0" : "py-1"}`}>
+      <header className={`fixed w-full z-40 bg-[#1a1145]/90 backdrop-blur-sm border-b border-yellow-500/20 transition-all ${isScrolled ? "py-2" : "py-4"}`}>
         <div className="container mx-auto px-4 flex items-center justify-between relative">
           {/* Logo Section */}
           <div className="flex items-center gap-3">
