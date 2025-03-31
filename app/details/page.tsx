@@ -61,9 +61,9 @@ export default function DetailsPage() {
       </div>
 
       {/* Content */}
-      <div className="relative z-0">
+      <div className="relative pt-40 pb-30 md:py-50 z-0">
       <Header />
-        <div className="pt-16 sm:pt-20 md:pt-40">
+        <div className="pt-16 sm:pt-20 md:pt-10">
           <div className="container mx-auto px-4 sm:px-6">
             {/* Tournament Overview Card */}
             <div className="bg-gradient-to-br from-purple-950/90 to-purple-900/80 text-white rounded-xl shadow-2xl p-4 sm:p-6 mb-6 sm:mb-8 backdrop-blur-md border border-purple-500/30">
