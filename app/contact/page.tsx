@@ -217,7 +217,7 @@ export default function ContactPage() {
           
           <div className="rounded-lg overflow-hidden border-4 border-yellow-500 shadow-lg">
             <iframe 
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3682.6734351231023!2d88.32114817537797!3d22.62304883099082!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39f882f89f539619%3A0x9f1820a7c1a02e93!2sD3%20Sports%20Arena!5e0!3m2!1sen!2sin!4v1711860987123!5m2!1sen!2sin" 
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3684.6248839347394!2d88.33683827536902!3d22.58782784911474!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a0277c5d6ffd45f%3A0x2bbc6434045f90b1!2sMaulana%20Abul%20Kalam%20Azad%20Rd%2C%20Gulmohar%20Railway%20Quarters%2C%20Mali%20Panchghara%2C%20Howrah%2C%20West%20Bengal%20711106!5e0!3m2!1sen!2sin!4v1711963851774!5m2!1sen!2sin" 
               width="100%" 
               height="450" 
               style={{ border: 0 }} 
