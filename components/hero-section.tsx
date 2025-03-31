@@ -55,8 +55,8 @@ export default function HeroSection() {
               BETTER
             </h1>
             <h1
-              className="text-6x md:text-6xl lg:text-6xl font-medium mb-6 text-yellow-400 tracking-normal drop-shadow-[2px_2px_4px_rgba(220,38,38,0.5)] relative z-10 py-2 px-10"
-              style={{ fontFamily: "Boulevard Saint Denis", alignItems: "left" }}
+              className="text-6xl md:text-6xl lg:text-6xl font-medium mb-6 text-yellow-400 tracking-normal drop-shadow-[2px_2px_4px_rgba(220,38,38,0.5)] relative z-10 py-2 space-between-x-10"
+              style={{ fontFamily: "Boulevard Saint Denis" }}
             >
                  GRANDER!
             </h1>
