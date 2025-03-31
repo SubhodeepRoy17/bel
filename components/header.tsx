@@ -90,86 +90,86 @@ export default function Header() {
         </button>
 
         {/* Mobile Drawer */}
-        <div 
-          className={`fixed inset-0 bg-[#1a1145]/95 z-50 md:hidden transition-transform duration-300 ease-in-out ${
-            isDrawerOpen ? "translate-x-0" : "translate-x-full"
-          }`}
-        >
-          <div className="flex flex-col h-full p-6">
-            {/* Drawer Header */}
-            <div className="flex justify-between items-center mb-8">
-              <div className="flex items-center gap-3">
-                <Image src="/logo.png" alt="Bengal Elite League Logo" width={50} height={50} className="object-contain" />
-                <span className="font-bold text-xl text-yellow-400" style={{ fontFamily: "Poppins, sans-serif" }}>
-                  Bengal Elite League
-                </span>
-              </div>
-              <button 
-                className="text-white p-2 focus:outline-none" 
-                onClick={toggleDrawer}
-                aria-label="Close menu"
-              >
-                <X size={24} />
-              </button>
-            </div>
-
-            {/* Drawer Navigation Links */}
-            <nav className="flex flex-col gap-6 text-lg" style={{ fontFamily: "Poppins, sans-serif" }}>
-              <Link 
-                href="/" 
-                className={`${isActive("/")} border-l-4 ${pathname === "/" ? "border-yellow-400" : "border-transparent"} pl-4 py-2`}
-                onClick={closeDrawer}
-              >
-                Home
-              </Link>
-              <Link 
-                href="/about" 
-                className={`${isActive("/about")} border-l-4 ${pathname === "/about" ? "border-yellow-400" : "border-transparent"} pl-4 py-2`}
-                onClick={closeDrawer}
-              >
-                About
-              </Link>
-              <Link 
-                href="/details" 
-                className={`${isActive("/details")} border-l-4 ${pathname === "/details" ? "border-yellow-400" : "border-transparent"} pl-4 py-2`}
-                onClick={closeDrawer}
-              >
-                Details
-              </Link>
-              <Link 
-                href="#prizes" 
-                className={`${isActive("#prizes")} border-l-4 ${pathname === "#prizes" ? "border-yellow-400" : "border-transparent"} pl-4 py-2`}
-                onClick={closeDrawer}
-              >
-                Prizes
-              </Link>
-              <Link 
-                href="/contact" 
-                className={`${isActive("/contact")} border-l-4 ${pathname === "/contact" ? "border-yellow-400" : "border-transparent"} pl-4 py-2`}
-                onClick={closeDrawer}
-              >
-                Contact
-              </Link>
-            </nav>
-
-            {/* Register Button - Mobile */}
-            <div className="mt-auto pt-6">
-              <Link
-                href="https://docs.google.com/forms/d/e/1FAIpQLSf5WWPIBqlvkfu9SBVIx5KNfPVt1vy2AGdigw0tOdXyBG9NGA/viewform?usp=dialog"
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={closeDrawer}
-              >
-                <Button
-                  className="w-full bg-yellow-500 hover:bg-yellow-600 text-[#1a1145] font-bold py-3 cursor-pointer"
-                  style={{ fontFamily: "Poppins, sans-serif" }}
+        {isDrawerOpen && (
+          <div 
+            className="fixed inset-0 bg-[#1a1145] z-50 md:hidden"
+            style={{ fontFamily: "Poppins, sans-serif" }}
+          >
+            <div className="flex flex-col h-full p-6">
+              {/* Drawer Header */}
+              <div className="flex justify-between items-center mb-8">
+                <div className="flex items-center gap-3">
+                  <Image src="/logo.png" alt="Bengal Elite League Logo" width={50} height={50} className="object-contain" />
+                  <span className="font-bold text-xl text-yellow-400">
+                    Bengal Elite League
+                  </span>
+                </div>
+                <button 
+                  className="text-white p-2 focus:outline-none" 
+                  onClick={toggleDrawer}
+                  aria-label="Close menu"
                 >
-                  Register Now
-                </Button>
-              </Link>
+                  <X size={24} />
+                </button>
+              </div>
+
+              {/* Drawer Navigation Links */}
+              <nav className="flex flex-col gap-6 text-lg">
+                <Link 
+                  href="/" 
+                  className={`${isActive("/")} border-l-4 ${pathname === "/" ? "border-yellow-400" : "border-transparent"} pl-4 py-2`}
+                  onClick={closeDrawer}
+                >
+                  Home
+                </Link>
+                <Link 
+                  href="/about" 
+                  className={`${isActive("/about")} border-l-4 ${pathname === "/about" ? "border-yellow-400" : "border-transparent"} pl-4 py-2`}
+                  onClick={closeDrawer}
+                >
+                  About
+                </Link>
+                <Link 
+                  href="/details" 
+                  className={`${isActive("/details")} border-l-4 ${pathname === "/details" ? "border-yellow-400" : "border-transparent"} pl-4 py-2`}
+                  onClick={closeDrawer}
+                >
+                  Details
+                </Link>
+                <Link 
+                  href="#prizes" 
+                  className={`${isActive("#prizes")} border-l-4 ${pathname === "#prizes" ? "border-yellow-400" : "border-transparent"} pl-4 py-2`}
+                  onClick={closeDrawer}
+                >
+                  Prizes
+                </Link>
+                <Link 
+                  href="/contact" 
+                  className={`${isActive("/contact")} border-l-4 ${pathname === "/contact" ? "border-yellow-400" : "border-transparent"} pl-4 py-2`}
+                  onClick={closeDrawer}
+                >
+                  Contact
+                </Link>
+              </nav>
+
+              {/* Register Button - Mobile */}
+              <div className="mt-auto pt-6">
+                <Link
+                  href="https://docs.google.com/forms/d/e/1FAIpQLSf5WWPIBqlvkfu9SBVIx5KNfPVt1vy2AGdigw0tOdXyBG9NGA/viewform?usp=dialog"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={closeDrawer}
+                >
+                  <Button
+                    className="w-full bg-yellow-500 hover:bg-yellow-600 text-[#1a1145] font-bold py-3 cursor-pointer"
+                  >
+                    Register Now
+                  </Button>
+                </Link>
+              </div>
             </div>
           </div>
-        </div>
+        )}
       </div>
     </header>
   )
