@@ -31,7 +31,7 @@ export default function Footer() {
               </div>
             </div>
             <p className="text-gray-300 leading-relaxed">
-              Experience the thrill of cricket with Bengal Elite League. Compete, win, and make history in West Bengal's premier cricket tournament!
+              Experience the thrill of cricket with Bengal Elite League. Compete, win, and make history in West Bengal&apos;s premier cricket tournament!
             </p>
             <div className="flex space-x-4">
               <a 

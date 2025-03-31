@@ -298,7 +298,7 @@ export default function ContactPage() {
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-6 text-yellow-400">Ready to Join the Cricket Revolution?</h2>
           <p className="text-lg mb-8 max-w-2xl mx-auto text-gray-200">
-            Whether you're looking to register your team, become a sponsor, or simply want more information, we're here to help.
+            Whether you&apos;re looking to register your team, become a sponsor, or simply want more information, we&apos;re here to help.
           </p>
           <Link 
             href="https://docs.google.com/forms/d/e/1FAIpQLSf5WWPIBqlvkfu9SBVIx5KNfPVt1vy2AGdigw0tOdXyBG9NGA/viewform?usp=dialog"

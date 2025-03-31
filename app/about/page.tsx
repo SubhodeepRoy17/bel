@@ -88,7 +88,7 @@ export default function AboutPage() {
             <h2 className="text-3xl md:text-4xl font-bold mb-4 text-yellow-400">Our Story</h2>
             <div className="h-1 w-20 bg-yellow-500 mx-auto mb-6"></div>
             <p className="text-lg max-w-3xl mx-auto text-gray-200">
-                From humble beginnings to becoming Bengal's premier cricket tournament
+                From humble beginnings to becoming Bengal&apos;s premier cricket tournament
             </p>
             </div>
             
@@ -152,7 +152,7 @@ export default function AboutPage() {
                 <div className="bg-[#2a1a55] p-6 rounded-lg border border-yellow-500/20">
                     <h3 className="text-2xl font-bold mb-4 text-yellow-400">The Elite League</h3>
                     <p className="text-gray-200">
-                    Today, Bengal Elite League stands as the premier cricket tournament in the region with 16 teams, professional organization, substantial prize money, and live coverage. The tournament has become a launchpad for cricket careers and a celebration of Bengal's cricket culture.
+                    Today, Bengal Elite League stands as the premier cricket tournament in the region with 16 teams, professional organization, substantial prize money, and live coverage. The tournament has become a launchpad for cricket careers and a celebration of Bengal&apos;s cricket culture.
                     </p>
                 </div>
                 </div>
@@ -266,7 +266,7 @@ export default function AboutPage() {
           <div className="grid md:grid-cols-3 gap-8">
             {/* Testimonial 1 */}
             <div className="bg-[#2a1a55] p-6 rounded-lg border border-yellow-500/20 relative">
-              <div className="absolute -top-5 left-6 text-yellow-400 text-6xl">"</div>
+              <div className="absolute -top-5 left-6 text-yellow-400 text-6xl">&quot;</div>
               <p className="text-gray-200 mb-6 pt-4">
                 Bengal Elite League gave me the platform to showcase my skills. The exposure and experience I gained were invaluable for my cricket career.
               </p>
@@ -288,9 +288,9 @@ export default function AboutPage() {
             
             {/* Testimonial 2 */}
             <div className="bg-[#2a1a55] p-6 rounded-lg border border-yellow-500/20 relative">
-              <div className="absolute -top-5 left-6 text-yellow-400 text-6xl">"</div>
+              <div className="absolute -top-5 left-6 text-yellow-400 text-6xl">&quot;</div>
               <p className="text-gray-200 mb-6 pt-4">
-                The level of organization and professionalism at Bengal Elite League is impressive. It's a tournament that truly celebrates cricket and the spirit of competition.
+                The level of organization and professionalism at Bengal Elite League is impressive. It&apos;s a tournament that truly celebrates cricket and the spirit of competition.
               </p>
               <div className="flex items-center">
                 <div className="w-12 h-12 rounded-full overflow-hidden mr-4">
@@ -310,9 +310,9 @@ export default function AboutPage() {
             
             {/* Testimonial 3 */}
             <div className="bg-[#2a1a55] p-6 rounded-lg border border-yellow-500/20 relative">
-              <div className="absolute -top-5 left-6 text-yellow-400 text-6xl">"</div>
+              <div className="absolute -top-5 left-6 text-yellow-400 text-6xl">&quot;</div>
               <p className="text-gray-200 mb-6 pt-4">
-                As a sponsor, we've seen the tournament grow year after year. The passion and dedication of the organizers and players make it a perfect platform for brands to connect with cricket enthusiasts.
+                As a sponsor, we&apos;ve seen the tournament grow year after year. The passion and dedication of the organizers and players make it a perfect platform for brands to connect with cricket enthusiasts.
               </p>
               <div className="flex items-center">
                 <div className="w-12 h-12 rounded-full overflow-hidden mr-4">
