@@ -59,10 +59,9 @@ export default function DetailsPage() {
         />
         <div className="absolute inset-0 bg-purple-950/60 backdrop-blur-sm"></div>
       </div>
-
+      <Header />
       {/* Content */}
       <div className="relative pt-40 pb-30 md:py-50 z-0">
-      <Header />
         <div className="pt-16 sm:pt-20 md:pt-10">
           <div className="container mx-auto px-4 sm:px-6">
             {/* Tournament Overview Card */}
