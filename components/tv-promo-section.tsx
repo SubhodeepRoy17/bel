@@ -96,7 +96,7 @@ export default function TvPromoSection() {
                     <Trophy className="h-5 w-5 text-[#1a1145]" />
                   </div>
                   <CardTitle className="text-lg text-yellow-400" style={{ fontFamily: "Poppins, sans-serif" }}>
-                    ₹6,00,000 Prize
+                    ₹7,50,000 Prize
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
