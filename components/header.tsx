@@ -118,7 +118,7 @@ export default function Header() {
             {/* Drawer Header */}
             <div className="flex justify-between items-center mb-8">
               <div className="flex items-center gap-3">
-                <Image src="/logo.png" alt="Bengal Elite League Logo" width={50} height={50} className="object-contain" />
+                <Image src="/logo.png" alt="Bengal Elite League Logo" width={200} height={200} className="object-contain" />
                 <span className="font-bold text-xl text-yellow-400">
                   Bengal Elite League
                 </span>
