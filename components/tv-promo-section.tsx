@@ -17,8 +17,17 @@ import { Users, BirdIcon as Cricket, Tv, Trophy } from "lucide-react"
 export default function TvPromoSection() {
   const sectionRef = useRef(null)
   const [showVideo, setShowVideo] = useState(false)
+  const [isMobile, setIsMobile] = useState(false)
   
   useEffect(() => {
+    // Check if mobile on mount and on resize
+    const checkIfMobile = () => {
+      setIsMobile(window.innerWidth < 768)
+    }
+    
+    checkIfMobile()
+    window.addEventListener('resize', checkIfMobile)
+    
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
@@ -36,7 +45,7 @@ export default function TvPromoSection() {
           }
         }
       },
-      { threshold: 0.5 },
+      { threshold: 0.1 }, // Lower threshold for mobile
     )
 
     if (sectionRef.current) {
@@ -47,38 +56,39 @@ export default function TvPromoSection() {
       if (sectionRef.current) {
         observer.unobserve(sectionRef.current)
       }
+      window.removeEventListener('resize', checkIfMobile)
     }
   }, [])
 
   return (
-    <section className="py-20 bg-gradient-to-b from-[#1a1145] to-[#2a1a55]">
+    <section className="py-12 md:py-20 bg-gradient-to-b from-[#1a1145] to-[#2a1a55]">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-12">
+        <div className="text-center mb-8 md:mb-12">
           <h2
-            className="text-3xl md:text-4xl font-bold mb-4 text-yellow-400 text-[#ff9600]"
+            className="text-2xl md:text-4xl font-bold mb-4 text-[#ff9600]"
             style={{ fontFamily: "Poppins, sans-serif" }}
           >
             GET READY FOR THE ACTION!
           </h2>
-          <p className="text-lg mb-6 text-gray-200 max-w-2xl mx-auto">
+          <p className="text-base md:text-lg mb-6 text-gray-200 max-w-2xl mx-auto">
             Bengal Elite League brings you the most exciting cricket tournament of 2025.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-8 items-center">
+        <div className="flex flex-col md:grid md:grid-cols-2 gap-6 md:gap-8 items-center">
           <div className="order-2 md:order-1">
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 md:gap-4">
               <Card className="bg-[#2a1a55] hover:shadow-lg transition-all border-yellow-500/30">
                 <CardHeader className="pb-2">
-                  <div className="w-10 h-10 rounded-full bg-yellow-500 flex items-center justify-center mb-2">
-                    <Users className="h-5 w-5 text-[#1a1145]" />
+                  <div className="w-8 h-8 md:w-10 md:h-10 rounded-full bg-yellow-500 flex items-center justify-center mb-2">
+                    <Users className="h-4 w-4 md:h-5 md:w-5 text-[#1a1145]" />
                   </div>
-                  <CardTitle className="text-lg text-yellow-400" style={{ fontFamily: "Poppins, sans-serif" }}>
+                  <CardTitle className="text-base md:text-lg text-yellow-400" style={{ fontFamily: "Poppins, sans-serif" }}>
                     16 Teams
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <CardDescription className="text-gray-300">
+                  <CardDescription className="text-gray-300 text-sm md:text-base">
                     The best cricket teams from across Bengal competing for glory
                   </CardDescription>
                 </CardContent>
@@ -86,15 +96,15 @@ export default function TvPromoSection() {
 
               <Card className="bg-[#2a1a55] hover:shadow-lg transition-all border-yellow-500/30">
                 <CardHeader className="pb-2">
-                  <div className="w-10 h-10 rounded-full bg-yellow-500 flex items-center justify-center mb-2">
-                    <Cricket className="h-5 w-5 text-[#1a1145]" />
+                  <div className="w-8 h-8 md:w-10 md:h-10 rounded-full bg-yellow-500 flex items-center justify-center mb-2">
+                    <Cricket className="h-4 w-4 md:h-5 md:w-5 text-[#1a1145]" />
                   </div>
-                  <CardTitle className="text-lg text-yellow-400" style={{ fontFamily: "Poppins, sans-serif" }}>
+                  <CardTitle className="text-base md:text-lg text-yellow-400" style={{ fontFamily: "Poppins, sans-serif" }}>
                     10 Over Format
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <CardDescription className="text-gray-300">
+                  <CardDescription className="text-gray-300 text-sm md:text-base">
                     Fast-paced cricket action with exciting matches
                   </CardDescription>
                 </CardContent>
@@ -102,15 +112,15 @@ export default function TvPromoSection() {
 
               <Card className="bg-[#2a1a55] hover:shadow-lg transition-all border-yellow-500/30">
                 <CardHeader className="pb-2">
-                  <div className="w-10 h-10 rounded-full bg-yellow-500 flex items-center justify-center mb-2">
-                    <Trophy className="h-5 w-5 text-[#1a1145]" />
+                  <div className="w-8 h-8 md:w-10 md:h-10 rounded-full bg-yellow-500 flex items-center justify-center mb-2">
+                    <Trophy className="h-4 w-4 md:h-5 md:w-5 text-[#1a1145]" />
                   </div>
-                  <CardTitle className="text-lg text-yellow-400" style={{ fontFamily: "Poppins, sans-serif" }}>
+                  <CardTitle className="text-base md:text-lg text-yellow-400" style={{ fontFamily: "Poppins, sans-serif" }}>
                     ₹ 11,00,000 Prize
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <CardDescription className="text-gray-300">
+                  <CardDescription className="text-gray-300 text-sm md:text-base">
                     Massive prize pool with trophies and special awards
                   </CardDescription>
                 </CardContent>
@@ -118,15 +128,15 @@ export default function TvPromoSection() {
 
               <Card className="bg-[#2a1a55] hover:shadow-lg transition-all border-yellow-500/30">
                 <CardHeader className="pb-2">
-                  <div className="w-10 h-10 rounded-full bg-yellow-500 flex items-center justify-center mb-2">
-                    <Tv className="h-5 w-5 text-[#1a1145]" />
+                  <div className="w-8 h-8 md:w-10 md:h-10 rounded-full bg-yellow-500 flex items-center justify-center mb-2">
+                    <Tv className="h-4 w-4 md:h-5 md:w-5 text-[#1a1145]" />
                   </div>
-                  <CardTitle className="text-lg text-yellow-400" style={{ fontFamily: "Poppins, sans-serif" }}>
+                  <CardTitle className="text-base md:text-lg text-yellow-400" style={{ fontFamily: "Poppins, sans-serif" }}>
                     Live Coverage
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <CardDescription className="text-gray-300">
+                  <CardDescription className="text-gray-300 text-sm md:text-base">
                     Full tournament coverage with highlights and analysis
                   </CardDescription>
                 </CardContent>
@@ -134,12 +144,12 @@ export default function TvPromoSection() {
             </div>
           </div>
 
-          <div ref={sectionRef} className="order-1 md:order-2 flex justify-center relative">
-            <div className="relative max-w-md">
+          <div ref={sectionRef} className="order-1 md:order-2 flex justify-center relative w-full">
+            <div className="relative w-full max-w-md">
               {showVideo ? (
-                <div className="instagram-embed-container w-[400px] h-[500px] overflow-hidden rounded-lg shadow-2xl">
+                <div className="instagram-embed-container w-full h-auto aspect-[9/16] md:h-[500px] overflow-hidden rounded-lg shadow-2xl">
                   <blockquote 
-                    className="instagram-media" 
+                    className="instagram-media w-full h-full" 
                     data-instgrm-permalink="https://www.instagram.com/reel/DGxoK8tPBW6/"
                     data-instgrm-version="14"
                     style={{ 
@@ -148,10 +158,11 @@ export default function TvPromoSection() {
                       borderRadius: "3px",
                       boxShadow: "0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15)",
                       margin: "1px",
-                      maxWidth: "400px",
-                      minWidth: "326px",
+                      maxWidth: isMobile ? "100%" : "400px",
+                      minWidth: isMobile ? "100%" : "326px",
                       padding: "0",
-                      width: "99.375%",
+                      width: "100%",
+                      height: "100%"
                     }}
                   >
                     <div style={{ padding: "16px" }}>
@@ -163,7 +174,8 @@ export default function TvPromoSection() {
                           padding: "0 0",
                           textAlign: "center",
                           textDecoration: "none",
-                          width: "100%"
+                          width: "100%",
+                          display: "block"
                         }}
                         target="_blank"
                         rel="noreferrer"
@@ -193,7 +205,7 @@ export default function TvPromoSection() {
                   alt="Get Ready For The Action"
                   width={400}
                   height={500}
-                  className="rounded-lg shadow-2xl"
+                  className="rounded-lg shadow-2xl w-full h-auto aspect-[9/16] md:h-[500px] object-cover"
                 />
               )}
             </div>
