@@ -113,6 +113,31 @@ export default function Footer() {
         {/* Bottom Section with Hashtag */}
         <div className="mt-16 pt-6 border-t border-yellow-500/20 text-center">
           <p className="font-bold text-2xl text-yellow-400 mb-4">#ABKHELEGABENGAL</p>
+          
+          {/* Legal Links - Added as requested */}
+          <div className="flex flex-wrap justify-center gap-2 sm:gap-6 mb-6">
+            <Link 
+              href="/privacy" 
+              className="text-gray-300 hover:text-yellow-400 transition-colors text-sm sm:text-base relative px-3 sm:px-4"
+            >
+              Privacy Policy
+            </Link>
+            <span className="hidden sm:inline text-gray-500">|</span>
+            <Link 
+              href="/terms" 
+              className="text-gray-300 hover:text-yellow-400 transition-colors text-sm sm:text-base relative px-3 sm:px-4"
+            >
+              Terms &amp; Conditions
+            </Link>
+            <span className="hidden sm:inline text-gray-500">|</span>
+            <Link 
+              href="/refundpolicy" 
+              className="text-gray-300 hover:text-yellow-400 transition-colors text-sm sm:text-base relative px-3 sm:px-4"
+            >
+              Refund Policy
+            </Link>
+          </div>
+          
           <p className="text-gray-400">
             &copy; {new Date().getFullYear()} Bengal Elite League. All rights reserved.
           </p>

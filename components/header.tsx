@@ -50,7 +50,7 @@ export default function Header() {
           {/* Logo Section */}
           <div className="flex items-center gap-3">
             <Link href="/">
-              <Image src="/logo.png" alt="Bengal Elite League Logo" width={70} height={70} className="object-contain" />
+              <Image src="/logo.png" alt="Bengal Elite League Logo" width={200} height={200} className="object-contain" />
             </Link>
             <Link href="/">
               <span className="font-bold text-xl md:text-2xl text-yellow-400" style={{ fontFamily: "Poppins, sans-serif" }}>
@@ -70,11 +70,14 @@ export default function Header() {
             <Link href="/details" className={isActive("/details")}>
               Details
             </Link>
-            <Link href="/prizes" className={isActive("/prizes")}>
-              Prizes
-            </Link>
             <Link href="/contact" className={isActive("/contact")}>
               Contact
+            </Link>
+            <Link href="/faq" className={isActive("/faq")}>
+              FAQs
+            </Link>
+            <Link href="/career" className={isActive("/career")}>
+              Careers
             </Link>
           </nav>
 
@@ -153,18 +156,25 @@ export default function Header() {
                 Details
               </Link>
               <Link 
-                href="/prizes" 
-                className={`${isActive("/prizes")} border-l-4 ${pathname === "/prizes" ? "border-yellow-400" : "border-transparent"} pl-4 py-2`}
-                onClick={closeDrawer}
-              >
-                Prizes
-              </Link>
-              <Link 
                 href="/contact" 
                 className={`${isActive("/contact")} border-l-4 ${pathname === "/contact" ? "border-yellow-400" : "border-transparent"} pl-4 py-2`}
                 onClick={closeDrawer}
               >
                 Contact
+              </Link>
+              <Link 
+                href="/faq" 
+                className={`${isActive("/faq")} border-l-4 ${pathname === "/faq" ? "border-yellow-400" : "border-transparent"} pl-4 py-2`}
+                onClick={closeDrawer}
+              >
+                FAQs
+              </Link>
+              <Link 
+                href="/career" 
+                className={`${isActive("/career")} border-l-4 ${pathname === "/career" ? "border-yellow-400" : "border-transparent"} pl-4 py-2`}
+                onClick={closeDrawer}
+              >
+                Careers
               </Link>
             </nav>
 

@@ -24,7 +24,7 @@ export default function HeroSection() {
           className="opacity-40"
         />
       </div>
-      <div className="container mx-auto px-4 z-10 text-center py-20">
+      <div className="container mx-auto px-4 py-40 z-10 text-center py-20">
         <div className="mb-10 flex justify-center">
           <Card className="w-full max-w-sm bg-[#2a1a55]/90 backdrop-blur-sm border-yellow-500/50 shadow-xl shadow-yellow-500/20">
             <CardHeader>
@@ -39,17 +39,17 @@ export default function HeroSection() {
           </Card>
         </div>
 
-        <div className="relative space-y-10">
+        <div className="relative space-y-10 ">
           {/* First paragraph with highlight */}
           <div className="relative mb-12 space-x-10">
             <h1
-              className="text-6xl md:text-6xl lg:text-6xl font-medium mb-6 text-yellow-400 tracking-normal drop-shadow-[2px_2px_4px_rgba(220,38,38,0.5)] relative z-10 py-2 space-between-x-10"
+              className="text-6xl md:text-6xl lg:text-6xl font-medium mb-6 text-yellow-400 tracking-normal drop-shadow-[2px_2px_4px_rgba(220,38,38,0.5)] relative z-10  px-40 py-2 space-between-x-10  flex items-center justify-center"
               style={{ fontFamily: "Boulevard Saint Denis" }}
             >
               BIGGER
             </h1>
             <h1
-              className="text-6xl md:text-6xl lg:text-6xl font-medium mb-6 text-yellow-400 tracking-normal drop-shadow-[2px_2px_4px_rgba(220,38,38,0.5)] relative z-10 py-2 space-between-x-10"
+              className="text-6xl md:text-6xl lg:text-6xl font-medium mb-6 text-yellow-400 tracking-normal drop-shadow-[2px_2px_4px_rgba(220,38,38,0.5)] relative z-10 px-20 py-2 space-between-x-10"
               style={{ fontFamily: "Boulevard Saint Denis" }}
             >
               BETTER

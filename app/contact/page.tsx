@@ -2,7 +2,6 @@ import Image from "next/image"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
 import { Phone, Mail, MapPin, Clock, Facebook, Instagram, Twitter, Youtube } from 'lucide-react'
 import Header from "@/components/header"
 import Footer from "@/components/footer"
@@ -13,7 +12,7 @@ export default function ContactPage() {
       <Header />
       
       {/* Hero Section */}
-      <section className="relative py-20">
+      <section className="relative py-50">
         <div className="absolute inset-0 z-0">
           <Image
             src="/cover_main.png"
@@ -229,84 +228,29 @@ export default function ContactPage() {
         </div>
       </section>
       
-      {/* FAQ Section */}
-      <section className="py-16 bg-[#1a1145]">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-yellow-400">Frequently Asked Questions</h2>
-            <div className="h-1 w-20 bg-yellow-500 mx-auto mb-6"></div>
-            <p className="text-lg max-w-3xl mx-auto text-gray-200">
-              Find answers to common questions about Bengal Elite League
-            </p>
-          </div>
-          
-          <div className="max-w-3xl mx-auto">
-            <Accordion type="single" collapsible className="space-y-4">
-              <AccordionItem value="item-1" className="bg-[#2a1a55] rounded-lg border border-yellow-500/20 px-6">
-                <AccordionTrigger className="text-yellow-400 font-bold py-4">
-                  How can I register my team for the tournament?
-                </AccordionTrigger>
-                <AccordionContent className="text-gray-200 pb-4">
-                  Team registration is open for the 2025 tournament. You can register your team by filling out the registration form on our website or contacting our team directly. The registration fee is ₹1,00,000 per team, and slots are limited, so we recommend registering early.
-                </AccordionContent>
-              </AccordionItem>
-              
-              <AccordionItem value="item-2" className="bg-[#2a1a55] rounded-lg border border-yellow-500/20 px-6">
-                <AccordionTrigger className="text-yellow-400 font-bold py-4">
-                  What is the format of the tournament?
-                </AccordionTrigger>
-                <AccordionContent className="text-gray-200 pb-4">
-                  Bengal Elite League follows a 10-over format with tennis ball cricket. The tournament includes a group stage followed by knockout rounds. Each team can have a maximum of 15 players, with 11 playing in each match.
-                </AccordionContent>
-              </AccordionItem>
-              
-              <AccordionItem value="item-3" className="bg-[#2a1a55] rounded-lg border border-yellow-500/20 px-6">
-                <AccordionTrigger className="text-yellow-400 font-bold py-4">
-                  Are there any player eligibility criteria?
-                </AccordionTrigger>
-                <AccordionContent className="text-gray-200 pb-4">
-                  Players must be at least 16 years old to participate. Each team can include a maximum of 2 professional players who have played at the state level or above. All players must be residents of Bengal or neighboring states.
-                </AccordionContent>
-              </AccordionItem>
-              
-              <AccordionItem value="item-4" className="bg-[#2a1a55] rounded-lg border border-yellow-500/20 px-6">
-                <AccordionTrigger className="text-yellow-400 font-bold py-4">
-                  How can I become a sponsor for Bengal Elite League?
-                </AccordionTrigger>
-                <AccordionContent className="text-gray-200 pb-4">
-                  We offer various sponsorship packages for businesses looking to partner with Bengal Elite League. These range from title sponsorship to smaller packages like team sponsorship or advertising boards. Please contact our marketing team at sponsors@bengaleliteleague.com for more information.
-                </AccordionContent>
-              </AccordionItem>
-              
-              <AccordionItem value="item-5" className="bg-[#2a1a55] rounded-lg border border-yellow-500/20 px-6">
-                <AccordionTrigger className="text-yellow-400 font-bold py-4">
-                  Will the matches be broadcast live?
-                </AccordionTrigger>
-                <AccordionContent className="text-gray-200 pb-4">
-                  Yes, all matches will be broadcast live on our official YouTube channel and selected local TV channels. We also provide live scoring updates on our website and social media platforms.
-                </AccordionContent>
-              </AccordionItem>
-            </Accordion>
-          </div>
-        </div>
-      </section>
-      
-      {/* CTA Section */}
+      {/* CTA Section with link to FAQ page */}
       <section className="py-16 bg-gradient-to-b from-[#1a1145] to-[#150237]">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-6 text-yellow-400">Ready to Join the Cricket Revolution?</h2>
           <p className="text-lg mb-8 max-w-2xl mx-auto text-gray-200">
             Whether you&apos;re looking to register your team, become a sponsor, or simply want more information, we&apos;re here to help.
           </p>
-          <Link 
-            href="https://docs.google.com/forms/d/e/1FAIpQLSf5WWPIBqlvkfu9SBVIx5KNfPVt1vy2AGdigw0tOdXyBG9NGA/viewform?usp=dialog"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Button className="bg-yellow-500 hover:bg-yellow-600 text-[#1a1145] text-lg font-bold px-8 py-6">
-              Register Now
-            </Button>
-          </Link>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link 
+              href="https://docs.google.com/forms/d/e/1FAIpQLSf5WWPIBqlvkfu9SBVIx5KNfPVt1vy2AGdigw0tOdXyBG9NGA/viewform?usp=dialog"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Button className="bg-yellow-500 hover:bg-yellow-600 text-[#1a1145] text-lg font-bold px-8 py-6">
+                Register Now
+              </Button>
+            </Link>
+            <Link href="/faq">
+              <Button variant="outline" className="border-yellow-500 text-yellow-400 hover:bg-yellow-500/10 text-lg font-bold px-8 py-6">
+                View FAQs
+              </Button>
+            </Link>
+          </div>
         </div>
       </section>
       

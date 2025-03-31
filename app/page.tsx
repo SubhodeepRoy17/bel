@@ -5,7 +5,6 @@ import TournamentDetails from "@/components/tournament-details"
 import ImageSection from "@/components/image-section"
 import PrizesSection from "@/components/prizes-section"
 import GameChangerSection from "@/components/game-changer-section"
-import ContactSection from "@/components/contact-section"
 import Footer from "@/components/footer"
 import VideoModal from "@/components/video-modal"
 
@@ -17,10 +16,9 @@ export default function Home() {
       <VideoModal />
       <TvPromoSection />
       <TournamentDetails />
-      <ImageSection />
       <PrizesSection />
+      <ImageSection />
       <GameChangerSection />
-      <ContactSection />
       <Footer />
     </div>
   )

@@ -47,7 +47,7 @@ export default function DetailsPage() {
   };
 
   return (
-    <div className="min-h-screen relative">
+    <div className="min-h-screen bg-[#150237] text-white" style={{ fontFamily: "Poppins, sans-serif" }}>
       {/* Stadium Background Image */}
       <div className="fixed inset-0 z-0">
         <Image
@@ -61,9 +61,9 @@ export default function DetailsPage() {
       </div>
 
       {/* Content */}
-      <div className="relative z-10">
-        <Header />
-        <div className="pt-16 sm:pt-20 md:pt-24">
+      <div className="relative z-0">
+      <Header />
+        <div className="pt-16 sm:pt-20 md:pt-40">
           <div className="container mx-auto px-4 sm:px-6">
             {/* Tournament Overview Card */}
             <div className="bg-gradient-to-br from-purple-950/90 to-purple-900/80 text-white rounded-xl shadow-2xl p-4 sm:p-6 mb-6 sm:mb-8 backdrop-blur-md border border-purple-500/30">

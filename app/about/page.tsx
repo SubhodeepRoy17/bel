@@ -10,7 +10,7 @@ export default function AboutPage() {
       <Header />
       
       {/* Hero Section - Added more responsive padding and text sizes */}
-      <section className="relative pt-24 pb-16 md:py-20">
+      <section className="relative pt-40 pb-30 md:py-50">
         <div className="absolute inset-0 z-0">
           <Image
             src="/cover_main.png"
@@ -109,7 +109,7 @@ export default function AboutPage() {
                   <p className="text-sm md:text-base text-gray-200">
                     Today, Bengal Elite League stands as the premier cricket tournament in the region with 16 teams, professional organization, substantial prize money, and live coverage. The tournament has become a launchpad for cricket careers and a celebration of Bengal&apos;s cricket culture.
                   </p>
-                  <p style={{ textAlign: "center" }}>BD Networks</p>
+                  <p style={{ textAlign: "center" }}>@2025 BD Networks</p>
                 </div>
               </div>
             </div>
