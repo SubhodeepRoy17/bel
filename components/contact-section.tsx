@@ -33,7 +33,7 @@ export default function ContactSection() {
               <h4 className="font-semibold mb-4 text-[#1a1145]">Follow Us</h4>
               <div className="flex gap-4">
                 <a
-                  href="https://www.facebook.com/share/1YjSMuXe4z/?mibextid=wwXIfr"
+                  href="https://www.facebook.com/share/1YjSMuXe4z/?mibextid=wwXIfr" target="_blank" rel="noreferrer"
                   className="bg-yellow-500 w-10 h-10 rounded-full flex items-center justify-center text-[#1a1145]"
                 >
                   <svg
@@ -51,7 +51,7 @@ export default function ContactSection() {
                   </svg>
                 </a>
                 <a
-                  href="https://www.instagram.com/bengaleliteleague?igsh=YnVncHZlcWkxZnRo&utm_source=qr"
+                  href="https://www.instagram.com/bengaleliteleague?igsh=YnVncHZlcWkxZnRo&utm_source=qr" target="_blank" rel="noreferrer"
                   className="bg-yellow-500 w-10 h-10 rounded-full flex items-center justify-center text-[#1a1145]"
                 >
                   <svg
@@ -72,7 +72,7 @@ export default function ContactSection() {
                 </a>
                 <a
                   href="#"
-                  className="bg-yellow-500 w-10 h-10 rounded-full flex items-center justify-center text-[#1a1145]"
+                  className="bg-yellow-500 w-10 h-10 rounded-full flex items-center justify-center text-[#1a1145]" target="_blank" rel="noreferrer"
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -89,7 +89,7 @@ export default function ContactSection() {
                   </svg>
                 </a>
                 <a
-                  href="https://youtube.com/@bengaleliteleague?si=MI7UvRI1cSE1akC8"
+                  href="https://youtube.com/@bengaleliteleague?si=MI7UvRI1cSE1akC8" target="_blank" rel="noreferrer"
                   className="bg-yellow-500 w-10 h-10 rounded-full flex items-center justify-center text-[#1a1145]"
                 >
                   <svg

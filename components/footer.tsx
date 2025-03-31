@@ -47,7 +47,7 @@ export default function Footer() {
                 className="bg-yellow-400 hover:bg-yellow-500 text-[#1a1145] p-2 rounded-full transition-all duration-300">
                 <Instagram size={18} />
               </a>
-              <a href="https://youtube.com/@bengaleliteleague?si=MI7UvRI1cSE1akC8"
+              <a href="https://youtube.com/@bengaleliteleague?si=MI7UvRI1cSE1akC8" target="_blank" rel="noreferrer"
                 className="bg-yellow-400 hover:bg-yellow-500 text-[#1a1145] p-2 rounded-full transition-all duration-300">
                 <Youtube size={18} />
               </a>

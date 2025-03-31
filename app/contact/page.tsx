@@ -118,7 +118,7 @@ export default function ContactPage() {
                   >
                     <Twitter size={24} />
                   </a>
-                  <a href="https://youtube.com/@bengaleliteleague?si=MI7UvRI1cSE1akC8"
+                  <a href="https://youtube.com/@bengaleliteleague?si=MI7UvRI1cSE1akC8" target="_blank" rel="noreferrer"
                     className="bg-yellow-500 w-12 h-12 rounded-full flex items-center justify-center text-[#1a1145] hover:bg-yellow-400 transition-colors"
                   >
                     <Youtube size={24} />
