@@ -216,7 +216,7 @@ export default function ContactPage() {
           
           <div className="rounded-lg overflow-hidden border-4 border-yellow-500 shadow-lg">
             <iframe 
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d471626.7242672862!2d88.29932214844534!3d22.58562431349!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a0277bb3bed9cfb%3A0xc09e19d2b4173c1c!2sJust%20Chill%20(%20Howrah)!5e0!3m2!1sen!2sin!4v1711964400631!5m2!1sen!2sin" 
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3684.623!2d88.339427!3d22.58784!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a0277c5df11a47d%3A0xf286964ef177679a!2sD3%20SPORTS%20ARENA%20(GULMOHAR)!5e0!3m2!1sen!2sin!4v1711964550123!5m2!1sen!2sin" 
               width="100%" 
               height="450" 
               style={{ border: 0 }} 
