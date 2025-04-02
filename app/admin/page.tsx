@@ -2,13 +2,12 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { useRouter } from 'next/navigation';
 import { ObjectId } from 'mongodb';
 import Header from "@/components/header";
 import Footer from "@/components/footer";
 
 interface Team {
-    _id: string | ObjectId;  // Add ObjectId type
+    _id: string | ObjectId;
     name: string;
     played: number;
     won: number;
@@ -30,7 +29,6 @@ export default function AdminPage() {
   });
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [password, setPassword] = useState('');
-  const router = useRouter();
 
   // Check authentication
   useEffect(() => {
@@ -59,7 +57,6 @@ export default function AdminPage() {
     fetchTeams();
   }, [isAuthenticated]);
 
-  // Handle team selection
   const handleTeamSelect = (team: Team) => {
     setSelectedTeam(team);
     setUpdates({
@@ -71,7 +68,6 @@ export default function AdminPage() {
     });
   };
 
-  // Handle update submission
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!selectedTeam) return;
@@ -91,7 +87,6 @@ export default function AdminPage() {
         throw new Error(data.error || 'Failed to update team');
       }
       alert('Team updated successfully!');
-      // Refresh teams data
       const refreshRes = await fetch('/api/teams');
       const refreshedTeams = await refreshRes.json();
       setTeams(refreshedTeams);
@@ -101,7 +96,6 @@ export default function AdminPage() {
     }
   };
 
-  // Handle authentication
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
     if (password === process.env.NEXT_PUBLIC_ADMIN_PASSWORD) {
@@ -114,8 +108,8 @@ export default function AdminPage() {
 
   if (!isAuthenticated) {
     return (
-      <div className="min-h-screen bg-[#150237] flex items-center justify-center">
-        <div className="bg-purple-900/80 p-8 rounded-xl shadow-lg max-w-md w-full">
+      <div className="min-h-screen bg-[#150237] flex items-center justify-center p-4">
+        <div className="bg-purple-900/80 p-6 sm:p-8 rounded-xl shadow-lg w-full max-w-md">
           <h2 className="text-2xl font-bold text-amber-400 mb-6 text-center">Admin Login</h2>
           <form onSubmit={handleLogin} className="space-y-4">
             <div>
@@ -152,9 +146,9 @@ export default function AdminPage() {
     <div className="min-h-screen bg-[#150237] text-white" style={{ fontFamily: "Poppins, sans-serif" }}>
       <Header />
       
-      <div className="container mx-auto px-4 sm:px-6 py-40">
-        <div className="flex justify-between items-center mb-8">
-          <h1 className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-amber-600">
+      <div className="container mx-auto px-4 py-20 sm:py-40">
+        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6 sm:mb-8 gap-4">
+          <h1 className="text-2xl sm:text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-amber-600">
             Tournament Admin Panel
           </h1>
           <button
@@ -162,25 +156,25 @@ export default function AdminPage() {
               localStorage.removeItem('cricket-admin-auth');
               setIsAuthenticated(false);
             }}
-            className="px-4 py-2 bg-red-600 rounded-lg hover:bg-red-700 transition-colors"
+            className="px-4 py-2 bg-red-600 rounded-lg hover:bg-red-700 transition-colors w-full sm:w-auto"
           >
             Logout
           </button>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8">
           {/* Team Selection */}
-          <div className="bg-purple-950/70 rounded-xl p-6 backdrop-blur-md border border-purple-500/30 shadow-xl">
+          <div className="bg-purple-950/70 rounded-xl p-4 sm:p-6 backdrop-blur-md border border-purple-500/30 shadow-xl">
             <h2 className="text-xl font-bold text-amber-400 mb-4">Select Team</h2>
             <div className="space-y-2 max-h-96 overflow-y-auto pr-2">
               {teams.map(team => (
                 <div
                   key={team._id.toString()}
                   onClick={() => handleTeamSelect(team)}
-                  className={`p-4 rounded-lg cursor-pointer transition-colors ${selectedTeam?._id === team._id ? 'bg-purple-800/80 border border-amber-500/50' : 'bg-purple-900/50 hover:bg-purple-800/50'}`}
+                  className={`p-3 sm:p-4 rounded-lg cursor-pointer transition-colors ${selectedTeam?._id === team._id ? 'bg-purple-800/80 border border-amber-500/50' : 'bg-purple-900/50 hover:bg-purple-800/50'}`}
                 >
-                  <h3 className="font-medium">{team.name}</h3>
-                  <div className="text-sm text-purple-300 mt-1">
+                  <h3 className="font-medium text-sm sm:text-base">{team.name}</h3>
+                  <div className="text-xs sm:text-sm text-purple-300 mt-1">
                     Played: {team.played} | Won: {team.won} | Lost: {team.lost} | Points: {team.points} | NRR: {team.nrr}
                   </div>
                 </div>
@@ -189,65 +183,65 @@ export default function AdminPage() {
           </div>
 
           {/* Update Form */}
-          <div className="bg-purple-950/70 rounded-xl p-6 backdrop-blur-md border border-purple-500/30 shadow-xl">
+          <div className="bg-purple-950/70 rounded-xl p-4 sm:p-6 backdrop-blur-md border border-purple-500/30 shadow-xl">
             <h2 className="text-xl font-bold text-amber-400 mb-4">
               {selectedTeam ? `Update ${selectedTeam.name}` : 'Select a team to update'}
             </h2>
             
             {selectedTeam && (
               <form onSubmit={handleSubmit} className="space-y-4">
-                <div className="grid grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
                   <div>
-                    <label className="block text-purple-200 mb-2">Matches Played</label>
+                    <label className="block text-purple-200 mb-1 sm:mb-2 text-sm sm:text-base">Matches Played</label>
                     <input
                       type="number"
                       value={updates.played}
                       onChange={(e) => setUpdates({...updates, played: parseInt(e.target.value) || 0})}
-                      className="w-full p-3 bg-purple-800/50 border border-purple-700 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-amber-500"
+                      className="w-full p-2 sm:p-3 bg-purple-800/50 border border-purple-700 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-amber-500 text-sm sm:text-base"
                       min="0"
                       required
                     />
                   </div>
                   <div>
-                    <label className="block text-purple-200 mb-2">Matches Won</label>
+                    <label className="block text-purple-200 mb-1 sm:mb-2 text-sm sm:text-base">Matches Won</label>
                     <input
                       type="number"
                       value={updates.won}
                       onChange={(e) => setUpdates({...updates, won: parseInt(e.target.value) || 0})}
-                      className="w-full p-3 bg-purple-800/50 border border-purple-700 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-amber-500"
+                      className="w-full p-2 sm:p-3 bg-purple-800/50 border border-purple-700 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-amber-500 text-sm sm:text-base"
                       min="0"
                       required
                     />
                   </div>
                   <div>
-                    <label className="block text-purple-200 mb-2">Matches Lost</label>
+                    <label className="block text-purple-200 mb-1 sm:mb-2 text-sm sm:text-base">Matches Lost</label>
                     <input
                       type="number"
                       value={updates.lost}
                       onChange={(e) => setUpdates({...updates, lost: parseInt(e.target.value) || 0})}
-                      className="w-full p-3 bg-purple-800/50 border border-purple-700 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-amber-500"
+                      className="w-full p-2 sm:p-3 bg-purple-800/50 border border-purple-700 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-amber-500 text-sm sm:text-base"
                       min="0"
                       required
                     />
                   </div>
                   <div>
-                    <label className="block text-purple-200 mb-2">Points</label>
+                    <label className="block text-purple-200 mb-1 sm:mb-2 text-sm sm:text-base">Points</label>
                     <input
                       type="number"
                       value={updates.points}
                       onChange={(e) => setUpdates({...updates, points: parseInt(e.target.value) || 0})}
-                      className="w-full p-3 bg-purple-800/50 border border-purple-700 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-amber-500"
+                      className="w-full p-2 sm:p-3 bg-purple-800/50 border border-purple-700 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-amber-500 text-sm sm:text-base"
                       min="0"
                       required
                     />
                   </div>
-                  <div className="col-span-2">
-                    <label className="block text-purple-200 mb-2">Net Run Rate (NRR)</label>
+                  <div className="col-span-1 sm:col-span-2">
+                    <label className="block text-purple-200 mb-1 sm:mb-2 text-sm sm:text-base">Net Run Rate (NRR)</label>
                     <input
                       type="text"
                       value={updates.nrr}
                       onChange={(e) => setUpdates({...updates, nrr: e.target.value})}
-                      className="w-full p-3 bg-purple-800/50 border border-purple-700 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-amber-500"
+                      className="w-full p-2 sm:p-3 bg-purple-800/50 border border-purple-700 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-amber-500 text-sm sm:text-base"
                       pattern="^[+-]?\d+\.\d{2}$"
                       title="Format: +1.23 or -1.23"
                       required
@@ -257,7 +251,7 @@ export default function AdminPage() {
                 
                 <button
                   type="submit"
-                  className="w-full py-3 bg-gradient-to-r from-amber-500 to-amber-600 text-purple-900 font-bold rounded-lg hover:from-amber-600 hover:to-amber-700 transition-all mt-4"
+                  className="w-full py-2 sm:py-3 bg-gradient-to-r from-amber-500 to-amber-600 text-purple-900 font-bold rounded-lg hover:from-amber-600 hover:to-amber-700 transition-all mt-2 sm:mt-4 text-sm sm:text-base"
                 >
                   Update Team Stats
                 </button>
