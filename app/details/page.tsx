@@ -1,34 +1,28 @@
 'use client';
 
-import React, { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Image from 'next/image';
-import Header from "@/components/header"
-import Footer from "@/components/footer"
+import Header from "@/components/header";
+import Footer from "@/components/footer";
+
+interface Team {
+  _id: string;
+  name: string;
+  played: number;
+  won: number;
+  lost: number;
+  points: number;
+  nrr: string;
+}
 
 export default function DetailsPage() {
   const [activeTab, setActiveTab] = useState('teams');
+  const [teams, setTeams] = useState<Team[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [lastUpdated, setLastUpdated] = useState(new Date());
+  const [ws, setWs] = useState<WebSocket | null>(null);
 
-  // Mock data for teams
-  const teams = [
-    { id: 1, name: 'Kolkata Kings', played: 3, won: 3, lost: 0, points: 6, nrr: '+1.250' },
-    { id: 2, name: 'Howrah Hunters', played: 3, won: 2, lost: 1, points: 4, nrr: '+0.850' },
-    { id: 3, name: 'Siliguri Strikers', played: 3, won: 2, lost: 1, points: 4, nrr: '+0.520' },
-    { id: 4, name: 'Darjeeling Daredevils', played: 3, won: 2, lost: 1, points: 4, nrr: '+0.320' },
-    { id: 5, name: 'Malda Mavericks', played: 3, won: 1, lost: 2, points: 2, nrr: '-0.120' },
-    { id: 6, name: 'Durgapur Dynamites', played: 3, won: 1, lost: 2, points: 2, nrr: '-0.350' },
-    { id: 7, name: 'Asansol Avengers', played: 3, won: 1, lost: 2, points: 2, nrr: '-0.620' },
-    { id: 8, name: 'Murshidabad Monarchs', played: 3, won: 0, lost: 3, points: 0, nrr: '-1.850' },
-    { id: 9, name: 'Birbhum Blasters', played: 0, won: 0, lost: 0, points: 0, nrr: '0.000' },
-    { id: 10, name: 'Cooch Behar Challengers', played: 0, won: 0, lost: 0, points: 0, nrr: '0.000' },
-    { id: 11, name: 'Jalpaiguri Jaguars', played: 0, won: 0, lost: 0, points: 0, nrr: '0.000' },
-    { id: 12, name: 'Purulia Panthers', played: 0, won: 0, lost: 0, points: 0, nrr: '0.000' },
-    { id: 13, name: 'Bankura Bravehearts', played: 0, won: 0, lost: 0, points: 0, nrr: '0.000' },
-    { id: 14, name: 'Burdwan Bulls', played: 0, won: 0, lost: 0, points: 0, nrr: '0.000' },
-    { id: 15, name: 'Nadia Ninjas', played: 0, won: 0, lost: 0, points: 0, nrr: '0.000' },
-    { id: 16, name: 'Hooghly Hurricanes', played: 0, won: 0, lost: 0, points: 0, nrr: '0.000' },
-  ];
-  
-  // Tournament details based on the images
+  // Tournament details
   const tournamentDetails = {
     name: 'Bengal Elite League (BEL) 2025',
     dates: '14th to 18th May 2025',
@@ -46,6 +40,65 @@ export default function DetailsPage() {
     playerLevel: 'Players participating in national team and prime cricket'
   };
 
+  // Initial data fetch
+  useEffect(() => {
+    const fetchTeams = async () => {
+      try {
+        const res = await fetch('/api/teams');
+        const data = await res.json();
+        setTeams(data);
+        setLastUpdated(new Date());
+      } catch (err) {
+        console.error('Failed to fetch teams:', err);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchTeams();
+  }, []);
+
+  // WebSocket setup for real-time updates
+  useEffect(() => {
+    const protocol = window.location.protocol === 'https:' ? 'wss://' : 'ws://';
+    const websocket = new WebSocket(`${protocol}${window.location.host}/api/ws`);
+    setWs(websocket);
+  
+    websocket.onmessage = (event) => {
+      const data = JSON.parse(event.data);
+      if (data.type === 'teams_update') {
+        setTeams(data.teams);
+        setLastUpdated(new Date());
+      }
+    };
+  
+    return () => {
+      websocket.close();
+    };
+  }, []);
+
+  // Sort teams according to cricket tournament standings rules
+  const sortTeams = (teams: Team[]): Team[] => {
+    return [...teams].sort((a, b) => {
+      if (b.points !== a.points) return b.points - a.points;
+      const aNrr = parseFloat(a.nrr);
+      const bNrr = parseFloat(b.nrr);
+      if (bNrr !== aNrr) return bNrr - aNrr;
+      if (b.won !== a.won) return b.won - a.won;
+      return a.name.localeCompare(b.name);
+    });
+  };
+
+  const sortedTeams = sortTeams(teams);
+
+  if (loading) {
+    return (
+      <div className="min-h-screen bg-[#150237] flex items-center justify-center">
+        <div className="text-white text-xl">Loading tournament data...</div>
+      </div>
+    );
+  }
+
   return (
     <div className="min-h-screen bg-[#150237] text-white" style={{ fontFamily: "Poppins, sans-serif" }}>
       {/* Stadium Background Image */}
@@ -59,7 +112,9 @@ export default function DetailsPage() {
         />
         <div className="absolute inset-0 bg-purple-950/60 backdrop-blur-sm"></div>
       </div>
+      
       <Header />
+      
       {/* Content */}
       <div className="relative pt-40 pb-30 md:py-50 z-0">
         <div className="pt-16 sm:pt-20 md:pt-10">
@@ -155,7 +210,7 @@ export default function DetailsPage() {
                 <h2 className="text-xl sm:text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-amber-600 mb-4 sm:mb-6">Participating Teams</h2>
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
                   {teams.map(team => (
-                    <div key={team.id} className="bg-gradient-to-br from-purple-800/90 to-purple-700/80 rounded-lg overflow-hidden hover:shadow-lg hover:from-purple-700/90 hover:to-purple-600/80 transition-all group">
+                    <div key={team._id} className="bg-gradient-to-br from-purple-800/90 to-purple-700/80 rounded-lg overflow-hidden hover:shadow-lg hover:from-purple-700/90 hover:to-purple-600/80 transition-all group">
                       <div className="p-3 sm:p-4 relative">
                         <div className="absolute top-0 right-0 w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-br from-amber-400/20 to-amber-600/10 rounded-bl-full"></div>
                         <h3 className="text-base sm:text-lg font-semibold text-white group-hover:text-amber-200 transition-colors">{team.name}</h3>
@@ -172,7 +227,14 @@ export default function DetailsPage() {
             {/* Standings Tab Content */}
             {activeTab === 'standings' && (
               <div className="bg-purple-950/70 rounded-xl p-4 sm:p-6 backdrop-blur-md border border-purple-500/30 shadow-xl">
-                <h2 className="text-xl sm:text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-amber-600 mb-4 sm:mb-6">Tournament Standings</h2>
+                <div className="flex justify-between items-center mb-4 sm:mb-6">
+                  <h2 className="text-xl sm:text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-amber-600">
+                    Tournament Standings
+                  </h2>
+                  <div className="text-xs text-purple-300">
+                    Last updated: {lastUpdated.toLocaleTimeString()}
+                  </div>
+                </div>
                 <div className="overflow-x-auto -mx-4 sm:mx-0">
                   <div className="inline-block min-w-full align-middle">
                     <div className="overflow-hidden">
@@ -189,13 +251,13 @@ export default function DetailsPage() {
                           </tr>
                         </thead>
                         <tbody>
-                          {teams.sort((a, b) => b.points - a.points || parseFloat(b.nrr.replace('+', '')) - parseFloat(a.nrr.replace('+', ''))).map((team, index) => (
-                            <tr key={team.id} className={`
-                              ${index % 2 === 0 ? 'bg-purple-800/30' : 'bg-purple-900/30'} 
+                          {sortedTeams.map((team, index) => (
+                            <tr key={team._id} className={
+                              `${index % 2 === 0 ? 'bg-purple-800/30' : 'bg-purple-900/30'} 
                               border-b border-purple-700/30 hover:bg-purple-700/50 transition-colors
                               ${index === 0 ? 'border-l-4 border-l-amber-500' : ''}
-                              ${index === teams.length - 1 ? 'rounded-b-lg' : ''}
-                            `}>
+                              ${index === teams.length - 1 ? 'rounded-b-lg' : ''}`
+                            }>
                               <td className="py-2 px-2 sm:py-3 sm:px-6 text-xs sm:text-sm">
                                 <div className="flex items-center">
                                   <span className={`h-5 w-5 sm:h-6 sm:w-6 rounded-full flex items-center justify-center text-xs mr-1 sm:mr-2 
@@ -204,16 +266,16 @@ export default function DetailsPage() {
                                   </span>
                                 </div>
                               </td>
-                              <td className="py-2 px-2 sm:py-3 sm:px-6 font-medium text-xs sm:text-sm">0</td>
-                              <td className="py-2 px-2 sm:py-3 sm:px-6 text-center text-xs sm:text-sm">0</td>
-                              <td className="py-2 px-2 sm:py-3 sm:px-6 text-center text-green-400 text-xs sm:text-sm">0</td>
-                              <td className="py-2 px-2 sm:py-3 sm:px-6 text-center text-red-400 text-xs sm:text-sm">0</td>
+                              <td className="py-2 px-2 sm:py-3 sm:px-6 font-medium text-xs sm:text-sm">{team.name}</td>
+                              <td className="py-2 px-2 sm:py-3 sm:px-6 text-center text-xs sm:text-sm">{team.played}</td>
+                              <td className="py-2 px-2 sm:py-3 sm:px-6 text-center text-green-400 text-xs sm:text-sm">{team.won}</td>
+                              <td className="py-2 px-2 sm:py-3 sm:px-6 text-center text-red-400 text-xs sm:text-sm">{team.lost}</td>
                               <td className="py-2 px-2 sm:py-3 sm:px-6 text-center text-xs sm:text-sm">
-                                <span className="font-bold text-base sm:text-lg text-amber-300">0</span>
+                                <span className="font-bold text-base sm:text-lg text-amber-300">{team.points}</span>
                               </td>
                               <td className="py-2 px-2 sm:py-3 sm:px-6 text-center text-xs sm:text-sm">
                                 <span className={`${team.nrr.startsWith('+') ? 'text-green-400' : 'text-red-400'}`}>
-                                  0
+                                  {team.nrr}
                                 </span>
                               </td>
                             </tr>
