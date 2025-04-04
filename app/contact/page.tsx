@@ -99,7 +99,7 @@ export default function ContactPage() {
                   <div>
                     <h3 className="text-xl font-bold mb-2 text-yellow-400">Technical Support</h3>
                     <p className="text-gray-200 mb-1">Hemant Singh</p>
-                    <p className="text-gray-200">+91 743976 7511</p>
+                    <p className="text-gray-200">+91 74397 67511</p>
                     <p className="text-gray-200 text-sm mt-2">(Available 24/7 for website and technical issues)</p>
                   </div>
                 </div>
