@@ -98,8 +98,8 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <h3 className="text-xl font-bold mb-2 text-yellow-400">Technical Support</h3>
-                    <p className="text-gray-200 mb-1">Mr. Rajesh Kumar</p>
-                    <p className="text-gray-200">+91 98765 43210</p>
+                    <p className="text-gray-200 mb-1">Hemant Singh</p>
+                    <p className="text-gray-200">+91 743976 7511</p>
                     <p className="text-gray-200 text-sm mt-2">(Available 24/7 for website and technical issues)</p>
                   </div>
                 </div>
