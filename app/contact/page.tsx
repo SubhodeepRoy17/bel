@@ -2,7 +2,7 @@ import Image from "next/image"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
-import { Phone, Mail, MapPin, Clock, Facebook, Instagram, Twitter, Youtube } from 'lucide-react'
+import { Phone, Mail, MapPin, Clock, Facebook, Instagram, Twitter, Youtube, Wrench } from 'lucide-react'
 import Header from "@/components/header"
 import Footer from "@/components/footer"
 
@@ -88,6 +88,19 @@ export default function ContactPage() {
                     <p className="text-gray-200 mb-1">Monday - Friday: 10:00 AM - 6:00 PM</p>
                     <p className="text-gray-200">Saturday: 10:00 AM - 2:00 PM</p>
                     <p className="text-gray-200">Sunday: Closed</p>
+                  </div>
+                </div>
+                
+                {/* New Technical Support Section */}
+                <div className="flex items-start gap-6">
+                  <div className="bg-yellow-500 p-3 rounded-full text-[#1a1145]">
+                    <Wrench size={24} />
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-bold mb-2 text-yellow-400">Technical Support</h3>
+                    <p className="text-gray-200 mb-1">Mr. Rajesh Kumar</p>
+                    <p className="text-gray-200">+91 98765 43210</p>
+                    <p className="text-gray-200 text-sm mt-2">(Available 24/7 for website and technical issues)</p>
                   </div>
                 </div>
               </div>
