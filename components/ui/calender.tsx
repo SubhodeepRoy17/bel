@@ -10,8 +10,8 @@ import { buttonVariants } from "@/components/ui/button"
 export type CalendarProps = React.ComponentProps<typeof DayPicker>
 
 interface ExtendedCustomComponents extends CustomComponents {
-    IconLeft?: React.ComponentType<any>
-    IconRight?: React.ComponentType<any>
+    IconLeft?: React.ComponentType<React.SVGProps<SVGSVGElement>>
+    IconRight?: React.ComponentType<React.SVGProps<SVGSVGElement>>
   }
 
 function Calendar({
@@ -59,9 +59,9 @@ function Calendar({
         ...classNames,
       }}
       components={{
-        IconLeft: ({ ...props }) => <ChevronLeft className="h-4 w-4" />,
-        IconRight: ({ ...props }) => <ChevronRight className="h-4 w-4" />,
-      } as ExtendedCustomComponents} 
+        IconLeft: () => <ChevronLeft className="h-4 w-4" />,
+        IconRight: () => <ChevronRight className="h-4 w-4" />,
+      } as Partial<ExtendedCustomComponents>}
       {...props}
     />
   )

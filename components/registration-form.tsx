@@ -282,7 +282,7 @@ export default function RegistrationForm() {
                     Apply
                   </Button>
                 </div>
-                <p className="text-sm text-blue-100">If you don't have a code, skip this box.</p>
+                <p className="text-sm text-blue-100">If you don&apos;t have a code, skip this box.</p>
               </div>
             </div>
 
