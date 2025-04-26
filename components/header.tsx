@@ -84,7 +84,7 @@ export default function Header() {
           {/* Register Button - Desktop */}
           <div className="hidden md:block">
             <Link
-              href="https://docs.google.com/forms/d/e/1FAIpQLSf5WWPIBqlvkfu9SBVIx5KNfPVt1vy2AGdigw0tOdXyBG9NGA/viewform?usp=dialog"
+              href="./registration"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -181,7 +181,7 @@ export default function Header() {
             {/* Register Button - Mobile */}
             <div className="mt-auto pt-6">
               <Link
-                href="https://docs.google.com/forms/d/e/1FAIpQLSf5WWPIBqlvkfu9SBVIx5KNfPVt1vy2AGdigw0tOdXyBG9NGA/viewform?usp=dialog"
+                href="./registration"
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={closeDrawer}

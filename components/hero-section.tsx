@@ -74,7 +74,7 @@ export default function HeroSection() {
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <Link
-            href="https://docs.google.com/forms/d/e/1FAIpQLSf5WWPIBqlvkfu9SBVIx5KNfPVt1vy2AGdigw0tOdXyBG9NGA/viewform?usp=dialog"
+            href="./registration"
             target="_blank"
             rel="noopener noreferrer"
           >
