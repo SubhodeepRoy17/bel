@@ -77,6 +77,27 @@ export default function Footer() {
             </ul>
           </div>
 
+          {/* Policies */}
+          <div className="flex flex-col space-y-6 text-left w-full">
+            <h4 className="text-xl font-bold text-white relative pl-4 before:content-[''] before:absolute before:left-0 before:top-0 before:bottom-0 before:w-1 before:bg-yellow-400 before:rounded">
+              Policies
+            </h4>
+            <ul className="space-y-3">
+              {[
+                { href: "/terms", label: "Terms & Conditions" },
+                { href: "/privacy", label: "Privacy Policy" },
+                { href: "/refundpolicy", label: "Refund Policy" }
+              ].map((link, index) => (
+                <li key={index} className="group">
+                  <Link href={link.href} className="flex items-center group-hover:text-yellow-400 transition-colors">
+                    <span className="inline-block w-2 h-2 bg-yellow-400 rounded-full mr-3 group-hover:scale-125 transition-transform"></span>
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
           {/* Contact Us */}
           <div className="flex flex-col space-y-6 text-left w-full">
             <h4 className="text-xl font-bold text-white relative pl-4 before:content-[''] before:absolute before:left-0 before:top-0 before:bottom-0 before:w-1 before:bg-yellow-400 before:rounded">
