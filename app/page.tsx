@@ -12,12 +12,19 @@ import VideoModal from "@/components/video-modal"
 */
 export default function Home() {
   return (
-    <div className="min-h-screen bg-[#150237] text-white overflow-hidden" style={{ fontFamily: "Poppins" }}>
+    <div
+      className="w-screen h-screen bg-[#150237] text-white overflow-hidden"
+      style={{ fontFamily: "Poppins" }}
+    >
       <img 
         src="/hacked-hack.gif" 
-        alt="Funny Animation" 
-        style={{ maxWidth: '100%', height: 'auto', alignItems: 'center', padding: '500px' }}
+        alt="Full Screen GIF" 
+        style={{ 
+          width: '100vw', 
+          height: '100vh', 
+          objectFit: 'cover' 
+        }}
       />
     </div>
-  )
+  );
 }
